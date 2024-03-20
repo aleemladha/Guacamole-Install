@@ -139,7 +139,7 @@ CERT_DAYS=""                    # Self signed cert setup, days until self signed
 LETS_ENCRYPT=""                 # Add Lets Encrypt public TLS cert for Nginx (self signed TLS not available with this option) true/false)
 LE_DNS_NAME=""                  # Public DNS name for Lets Encrypt certificates
 LE_EMAIL=""                     # Webmaster/admin email for Lets Encrypt notifications
-BACKUP_EMAIL=""                 # Email address for backup notifications
+BACKUP_EMAIL="me@me.com"                 # Email address for backup notifications
 BACKUP_RETENTION="30"           # How many days to keep SQL backups locally for
 RDP_SHARE_LABEL="RDP Share"     # Customise RDP shared drive name in Windows Explorer (e.g. RDP_SHARE_LABEL on RDP_SHARE_HOST)
 RDP_SHARE_HOST=""               # Customise RDP share name in Windows Explorer. Blank = $SERVER_NAME. (e.g. RDP_SHARE_LABEL on RDP_SHARE_HOST)
