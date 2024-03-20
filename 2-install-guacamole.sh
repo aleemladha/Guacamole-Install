@@ -15,6 +15,38 @@ LGREEN='\033[0;92m'
 LYELLOW='\033[0;93m'
 NC='\033[0m' #No Colour
 
+
+# Update everything but don't do the annoying prompts during apt installs
+echo -e "${GREY}Updating base Linux OS..."
+export DEBIAN_FRONTEND=noninteractive
+spinner() {
+  local pid=$1
+  local delay=0.15
+  local spinstr='|/-\'
+  tput civis
+  while ps -p $pid > /dev/null; do
+    for i in $(seq 0 3); do
+      tput sc
+      printf "[%c]" "${spinstr:$i:1}"
+      tput rc
+      sleep $delay
+    done
+  done
+  tput cnorm
+  printf "       "
+  tput rc
+}
+apt-get update &>>${INSTALL_LOG} &
+command_pid=$!
+spinner $command_pid
+if [[ $? -ne 0 ]]; then
+    echo -e "${LRED}Failed. See ${INSTALL_LOG}${GREY}" 1>&2
+    exit 1
+else
+    echo -e "${LGREEN}OK${GREY}"
+    echo
+fi
+
 # Pre-seed MySQL root password values for Linux Distro default packages only
 if [[ "${INSTALL_MYSQL}" = true ]] && [[ -z "${MYSQL_VERSION}" ]]; then
     debconf-set-selections <<<"mysql-server mysql-server/root_password password ${MYSQL_ROOT_PWD}"
