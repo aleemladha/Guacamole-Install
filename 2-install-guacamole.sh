@@ -36,7 +36,7 @@ spinner() {
   printf "       "
   tput rc
 }
-apt-get upgrade -qq -y &>>${INSTALL_LOG} &
+apt-get update -qq -y &>>${INSTALL_LOG} &
 command_pid=$!
 spinner $command_pid
 if [[ $? -ne 0 ]]; then
