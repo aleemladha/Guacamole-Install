@@ -7,7 +7,6 @@
 #######################################################################################################################
 
 # To install the latest code snapshot:
-# wget https://raw.githubusercontent.com/itiligent/Guacamole-Install/main/1-setup.sh && chmod +x 1-setup.sh && ./1-setup.sh
 
 # 1-setup.sh is a central script that manages all inputs, options and sequences other included 'install' scripts.
 # 2-install-guacamole is the main guts of the whole build. This script downloads and builds Guacamole from source.
@@ -124,9 +123,9 @@ INSTALL_DUO="false"                  # Add DUO MFA extension (can't be installed
 INSTALL_LDAP="false"                 # Add Active Directory extension (true/false)
 INSTALL_QCONNECT="false"             # Add Guacamole console quick connect feature (true/false)
 INSTALL_HISTREC="true"              # Add Guacamole history recording storage feature (true/false)
-HISTREC_PATH="/opt/guacamole/recordings"                 # If blank sets Apache default /var/lib/guacamole/recordings
-GUAC_URL_REDIR="true"               # Add auto redirect from http://xxx:8080 root to http://xxx:8080/guacamole)
-INSTALL_NGINX="false"                # Install and configure Nginx and reverse proxy Guacamole (via http port 80 only, true/false)
+HISTREC_PATH="/opt/guacamole/recordings"
+GUAC_URL_REDIR="true"           # Add auto redirect from http://xxx:8080 root to http://xxx:8080/guacamole)
+INSTALL_NGINX="false"           # Install and configure Nginx and reverse proxy Guacamole (via http port 80 only, true/false)
 PROXY_SITE=""                   # Local DNS name for reverse proxy site and/or self signed TLS certificates
 SELF_SIGN=""                    # Add self signed TLS support to Nginx (Let's Encrypt not available with this option, true/false)
 RSA_KEYLENGTH="2048"            # Self signed RSA TLS key length. At least 2048, must not be blank.
@@ -139,7 +138,7 @@ CERT_DAYS=""                    # Self signed cert setup, days until self signed
 LETS_ENCRYPT=""                 # Add Lets Encrypt public TLS cert for Nginx (self signed TLS not available with this option) true/false)
 LE_DNS_NAME=""                  # Public DNS name for Lets Encrypt certificates
 LE_EMAIL=""                     # Webmaster/admin email for Lets Encrypt notifications
-BACKUP_EMAIL="me@me.com"                 # Email address for backup notifications
+BACKUP_EMAIL="me@me.com"        # Email address for backup notifications
 BACKUP_RETENTION="30"           # How many days to keep SQL backups locally for
 RDP_SHARE_LABEL="RDP Share"     # Customise RDP shared drive name in Windows Explorer (e.g. RDP_SHARE_LABEL on RDP_SHARE_HOST)
 RDP_SHARE_HOST=""               # Customise RDP share name in Windows Explorer. Blank = $SERVER_NAME. (e.g. RDP_SHARE_LABEL on RDP_SHARE_HOST)
