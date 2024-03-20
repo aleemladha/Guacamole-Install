@@ -109,7 +109,7 @@ INSTALL_LOG="${DOWNLOAD_DIR}/guacamole_install.log"
 # Silent setup options - true/false or specific values below prevents prompt at install. EDIT TO SUIT #################
 #######################################################################################################################
 SERVER_NAME="kali"                  # Server hostname. (Blank = use the current hostname.)
-LOCAL_DOMAIN=""                 # Local DNS namespace/domain suffix
+LOCAL_DOMAIN="localdomain"                 # Local DNS namespace/domain suffix
 INSTALL_MYSQL="true"                # Install MySQL locally (true/false)
 SECURE_MYSQL="true"                 # Apply mysql secure configuration tool (true/false)
 MYSQL_HOST=""                   # Blank or localhost for a local MySQL install, a specific IP for remote MySQL option.
